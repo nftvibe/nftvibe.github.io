@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <title>Lucky 2022 NFT</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js" type="text/javascript"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="./abi/lucky2022_abi.js" type=" text/javascript"></script>
+    <script src="./js/lucky.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div>
+      지갑은 Kaikas만 잘 지원되요. 메타마스크도 될지도?
+      <button id="connect-btn" onclick="connectWallet()">
+        지갑 연결
+      </button>
+      <button id="my-addr-btn" onclick="detailWallet()"></button>
+    </div>
+    <div>
+      <h1>2022년 새해복 많이 받으실 NFT 입니다. 딱 1클레이 입니다!</h1>
+      <img width="300" src="https://lh3.googleusercontent.com/GbxgQV5UPvet4JARA2FHn-SMF6NHQ6LHvhpHOBHONMZbM0XJKJ72YwHmGiFF_kNWoXr4Jn0JlcHPEvrrLVTQ914eZ-Gjz5RVSOAs=s0"/>
+
+      <hr/>
+      
+      <h3>대시보드</h3>
+      <p>총 20000개 까지 발행하지만 인기가 없어 20000개 까지 갈 일은 없을 것 같아요.</p>
+      <p>현재 발행 개수 <span id="total_mint_cnt">0</span></p>
+      <p>내 민팅 개수 <span id="my_item_count">0</span></p>
+      <div id="minted_item_wrap">
+        <div>
+          <p id="my_card_cnt"></p>
+        </div>
+        <div>
+          <div id="minted_item"></div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <h3>링크</h3>
+      <p>오픈톡방 : <a href="https://open.kakao.com/o/g26nNqXd">https://open.kakao.com/o/g26nNqXd</a></p>
+      <p>텔레그램 : 없음</p>
+      <p>깃헙 : <a href="https://github.com/nftvibe">https://github.com/nftvibe</a></p>
+
+      <hr/>
+
+      <h3>로드맵</h3>
+      <p>1. 2022년 새해복 NFT 발행 <a target="_blank" href="https://opensea.io/collection/lucky2022nft">Opensea</a> </a><a target="_blank" href="https://scope.klaytn.com/account/0x7727712C2D37c6A30668FD142b0a6B6E5f450145?tabId=txList">NFT Contract</a></a></p>
+      <p>2. 민팅 사이드 제작 <a href="https://nftvibe.github.io" target="_blank">여기</a></p>
+      <p>3. NFT 홀더 전용 신년 운세(재미로)를 볼 수 있게 해볼 예정</p>
+      <p>4. 복키우기? 다른 복덩어리 NFT 제작? 홀더분들의 의견대로 제작</p>
+
+      <hr/>
+
+      <select id="mint_count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button id="mint_btn" onclick="mint();">새해복 민팅 하기(1 KLAY)</button>
+
+      <br/>
+      <br/>
+      <br/>
+      <footer>by. nft_vibe</footer>
+      <br/>
+    </div>
+  </body>
+</html>
