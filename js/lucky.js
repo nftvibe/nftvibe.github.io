@@ -136,12 +136,8 @@ async function getTotalSupplyNoWallet() {
 }
 
 async function getMintingInfo(contract) {
-  let maxCnt = 0;
-  let mintedCnt = 0;
-  mintedCnt = await contract.methods.totalSupply().call();
-  maxCnt = await contract.methods.MAX_PUBLIC_ID().call();
+  let mintedCnt = await contract.methods.totalSupply().call();
   let total_mint_cnt = document.getElementById("total_mint_cnt");
-  const fee_wei = await contract.methods.MINTING_FEE().call();
   total_mint_cnt.innerText = mintedCnt;
 }
 
@@ -249,7 +245,14 @@ showCardList = async () => {
   }
 
   document.getElementById("minted_item").innerHTML = "";
-  const cardInfos = await loadItemDetail(tokenIds).then(item => {
+
+  const mintedItems = await Promise.all(
+    tokenIds.map((id) => {
+      return loadItemDetail(id);
+    })
+  );
+
+  mintedItems.map(item => {
     console.log(item);
     let card = document.createElement("div");
     let imgBox = document.createElement("div");
